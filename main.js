@@ -32,3 +32,48 @@ btn1.addEventListener("click", go_to_names);
 btn2.addEventListener("click", go_to_board);
 btn3.addEventListener("click", go_to_result);
 btn4.addEventListener("click", go_to_start);
+
+const cells = document.querySelectorAll(".cell");
+let currentPlayer = "X";
+let board = ["", "", "", "", "", "", "", "", ""];
+
+const checkWinner = () => {
+    const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+    for (let condition of winningConditions) {
+        const [a, b, c] = condition;
+        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
+const handleClick = (index) => {
+    if (board[index] !== "" || checkWinner()) return;
+
+    board[index] = currentPlayer;
+    cells[index].textContent = currentPlayer;
+
+    if (checkWinner()) {
+        alert(`Player ${currentPlayer} wins!`);
+    } else if (!board.includes("")) {
+        alert("It's a draw!");
+    } else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+    }
+};
+
+cells.forEach((cell, index) => {
+    cell.addEventListener("click", () => handleClick(index));
+});
