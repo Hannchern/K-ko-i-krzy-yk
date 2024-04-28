@@ -45,7 +45,7 @@ const go_to_start = () => {
     result.style.display = "none";
 };
 
-const cells = document.querySelectorAll(".cell");
+const cells = document.querySelectorAll(".field");
 let currentPlayer = "X";
 let data_board = ["", "", "", "", "", "", "", "", ""];
 
@@ -71,6 +71,10 @@ const checkWinner = () => {
     return false;
 };
 
+const updateCurrentPlayerDisplay = () => {
+    current_user_name.textContent = currentPlayer === "X" ? user1_name : user2_name;
+};
+
 const handleClick = (index) => {
     if (data_board[index] !== "" || checkWinner()) return;
 
@@ -78,17 +82,22 @@ const handleClick = (index) => {
     cells[index].textContent = currentPlayer;
 
     if (checkWinner()) {
-        alert(`Player ${currentPlayer} wins!`);
+        alert(`Player ${currentPlayer === "X" ? user1_name : user2_name} wins!`);
+        go_to_result();
     } else if (!data_board.includes("")) {
         alert("It's a draw!");
+        go_to_result();
     } else {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
+        updateCurrentPlayerDisplay();
     }
 };
 
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => handleClick(index));
 });
+
+updateCurrentPlayerDisplay();
 
 btn1.addEventListener("click", go_to_names);
 btn2.addEventListener("click", go_to_board);
