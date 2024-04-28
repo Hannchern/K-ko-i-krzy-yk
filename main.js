@@ -2,11 +2,26 @@ const start = document.querySelector(".start");
 const names = document.querySelector(".names");
 const board = document.querySelector(".board");
 const result = document.querySelector(".result");
+const current_user_name = document.querySelector(".current_user_name");
+
+const u1 = document.querySelector(".user1");
+const u2 = document.querySelector(".user2");
 
 const btn1 = document.querySelector(".btn1");
 const btn2 = document.querySelector(".btn2");
 const btn3 = document.querySelector(".btn3");
 const btn4 = document.querySelector(".btn4");
+
+let user1_name;
+let user2_name;
+
+const get_user1_name = () => {
+    user1_name = u1.value;
+};
+
+const get_user2_name = () => {
+    user2_name = u2.value;
+};
 
 const go_to_names = () => {
     names.style.display = "flex";
@@ -14,6 +29,8 @@ const go_to_names = () => {
 };
 
 const go_to_board = () => {
+    get_user1_name();
+    get_user2_name();
     board.style.display = "flex";
     names.style.display = "none";
 };
