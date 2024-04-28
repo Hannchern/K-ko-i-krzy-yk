@@ -28,14 +28,9 @@ const go_to_start = () => {
     result.style.display = "none";
 };
 
-btn1.addEventListener("click", go_to_names);
-btn2.addEventListener("click", go_to_board);
-btn3.addEventListener("click", go_to_result);
-btn4.addEventListener("click", go_to_start);
-
 const cells = document.querySelectorAll(".cell");
 let currentPlayer = "X";
-let board = ["", "", "", "", "", "", "", "", ""];
+let data_board = ["", "", "", "", "", "", "", "", ""];
 
 const checkWinner = () => {
     const winningConditions = [
@@ -51,7 +46,7 @@ const checkWinner = () => {
 
     for (let condition of winningConditions) {
         const [a, b, c] = condition;
-        if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        if (data_board[a] && data_board[a] === data_board[b] && data_board[a] === data_board[c]) {
             return true;
         }
     }
@@ -60,14 +55,14 @@ const checkWinner = () => {
 };
 
 const handleClick = (index) => {
-    if (board[index] !== "" || checkWinner()) return;
+    if (data_board[index] !== "" || checkWinner()) return;
 
-    board[index] = currentPlayer;
+    data_board[index] = currentPlayer;
     cells[index].textContent = currentPlayer;
 
     if (checkWinner()) {
         alert(`Player ${currentPlayer} wins!`);
-    } else if (!board.includes("")) {
+    } else if (!data_board.includes("")) {
         alert("It's a draw!");
     } else {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
@@ -77,3 +72,8 @@ const handleClick = (index) => {
 cells.forEach((cell, index) => {
     cell.addEventListener("click", () => handleClick(index));
 });
+
+btn1.addEventListener("click", go_to_names);
+btn2.addEventListener("click", go_to_board);
+btn3.addEventListener("click", go_to_result);
+btn4.addEventListener("click", go_to_start);

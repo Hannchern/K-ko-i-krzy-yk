@@ -12,34 +12,27 @@
 <body>
 	<div class="container">
 		<section class="start">
-			<h1 class="h1">Kółko i Krzyżyk <br/> dla Trzech Osób</h1>
+			<h1 class="h1">Kółko i Krzyżyk</h1>
 			<button class="btn1">Zaczynamy!</button>
 		</section>
 		<section class="names">
 			<h1 class="h1">Wpiszcie imiona graczy:</h1>
 			<input class="user1" type="text" placeholder="Imię lub Ksywka">
 			<input class="user2" type="text" placeholder="Imię lub Ksywka">
-			<input class="user3" type="text" placeholder="Imię lub Ksywka">
 			<button class="btn2">Gotowe!</button>
 		</section>
 		<section class="board">
 			<h1 class="h1">Imię Gracza, pora na Twój ruch</h1>
-			<div class="tic-tac-toe" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 5px;">
-				<div class="row">
-					<div class="cell" id="cell-0" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-1" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-2" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-				</div>
-				<div class="row">
-					<div class="cell" id="cell-3" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-4" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-5" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-				</div>
-				<div class="row">
-					<div class="cell" id="cell-6" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-7" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-					<div class="cell" id="cell-8" style="width: 100px; height: 100px; border: 1px solid black; display: flex; justify-content: center; align-items: center; font-size: 24px; cursor: pointer;"></div>
-				</div>
+			<div class="fields_5x5">
+				<div class="field" id="f01"></div>
+				<div class="field" id="f02"></div>
+				<div class="field" id="f03"></div>
+				<div class="field" id="f04"></div>
+				<div class="field" id="f05"></div>
+				<div class="field" id="f06"></div>
+				<div class="field" id="f07"></div>
+				<div class="field" id="f08"></div>
+				<div class="field" id="f09"></div>
 			</div>
 			<button class="btn3">*tymczasowy przycisk*</button>
 		</section>
